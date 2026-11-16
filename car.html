@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карточка автомобиля — АвтоПрайм</title>
+  <meta name="description" content="Подробная информация об автомобиле: характеристики, комплектации, кредитный калькулятор и запись на тест-драйв в автосалоне «АвтоПрайм».">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/car.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="index.html" aria-label="АвтоПрайм — на главную">
+      <span class="logo__mark">A</span>
+      <span class="logo__text">AUTO<em>PRIME</em></span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="catalog.html">Каталог</a>
+      <a href="index.html#credit">Кредит</a>
+      <a href="index.html#tradein">Trade-in</a>
+      <a href="index.html#about">О салоне</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header__actions">
+      <a class="header__phone" href="tel:+79781234567">+7 (978) 123-45-67</a>
+      <button class="btn btn--primary btn--sm" type="button" data-modal>Тест-драйв</button>
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="catalog.html">Каталог</a>
+    <a href="index.html#credit">Кредит</a>
+    <a href="index.html#tradein">Trade-in</a>
+    <a href="index.html#about">О салоне</a>
+    <a href="contacts.html">Контакты</a>
+    <a class="header__phone" href="tel:+79781234567">+7 (978) 123-45-67</a>
+    <button class="btn btn--primary btn--block" type="button" data-modal>Записаться на тест-драйв</button>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span>/</span>
+      <a href="catalog.html">Каталог</a>
+      <span>/</span>
+      <span data-car-name>Kia Sportage</span>
+    </nav>
+
+    <section class="car-hero">
+      <div class="gallery">
+        <div class="gallery__main">
+          <img id="galleryMain" src="img/cars/kia-sportage.webp" alt="Kia Sportage" width="900" height="563">
+        </div>
+        <div class="gallery__thumbs" id="galleryThumbs"></div>
+      </div>
+
+      <div class="car-info">
+        <span class="badge-inline" id="carBadge">Хит</span>
+        <h1 class="car-info__title" id="carTitle">Kia Sportage</h1>
+        <p class="car-info__sub" id="carSub">2026 · кроссовер · 2.0 л / 150 л.с. · привод полный</p>
+        <div class="car-info__price" id="carPrice">3 299 000 ₽</div>
+        <div class="car-info__month" id="carMonth"></div>
+        <div class="car-info__actions">
+          <button class="btn btn--primary btn--lg" id="carTestDrive" type="button" data-modal data-car="kia-sportage">
+            Записаться на тест-драйв
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <a class="btn btn--light btn--lg" href="#calculator">Рассчитать кредит</a>
+        </div>
+        <ul class="car-specs" id="carSpecs"></ul>
+        <div class="car-info__note">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+            Официальная гарантия
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+            Trade-in
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+            Кредит от 4,9 %
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tabs-section">
+      <div class="tabs">
+        <div class="tabs__nav" id="tabsNav" role="tablist" aria-label="Информация об автомобиле">
+          <button class="tabs__btn is-active" type="button" role="tab" data-tab="specs">Характеристики</button>
+          <button class="tabs__btn" type="button" role="tab" data-tab="trims">Комплектации</button>
+          <button class="tabs__btn" type="button" role="tab" data-tab="description">Описание</button>
+          <button class="tabs__btn" type="button" role="tab" data-tab="reviews">Отзывы</button>
+        </div>
+        <div class="tabs__panel is-active" id="tab-specs" role="tabpanel"></div>
+        <div class="tabs__panel" id="tab-trims" role="tabpanel"></div>
+        <div class="tabs__panel" id="tab-description" role="tabpanel"></div>
+        <div class="tabs__panel" id="tab-reviews" role="tabpanel"></div>
+      </div>
+    </section>
+
+    <section class="calculator" id="calculator">
+      <div class="calc-card">
+        <div>
+          <span class="eyebrow eyebrow--light">Кредитный калькулятор</span>
+          <h2 class="calc-card__title">Рассчитайте платёж за минуту</h2>
+          <p class="calc-card__text">Подберите стоимость автомобиля, размер первоначального взноса и срок кредита —
+            ежемесячный платёж пересчитается автоматически.</p>
+          <div class="calc-fields">
+            <div class="calc-field">
+              <div class="calc-field__top">
+                <span>Стоимость автомобиля</span>
+                <span class="calc-field__value" id="calcCostValue">3 299 000 ₽</span>
+              </div>
+              <input class="range" id="calcCost" type="range" min="2639000" max="3959000" step="10000" value="3299000" aria-label="Стоимость автомобиля">
+            </div>
+            <div class="calc-field">
+              <div class="calc-field__top">
+                <span>Первый взнос</span>
+                <span class="calc-field__value" id="calcDownValue">20 %</span>
+              </div>
+              <input class="range" id="calcDown" type="range" min="0" max="50" step="5" value="20" aria-label="Первый взнос">
+            </div>
+            <div class="calc-field">
+              <div class="calc-field__top">
+                <span>Срок кредита</span>
+                <span class="calc-field__value" id="calcTermValue">72 мес.</span>
+              </div>
+              <input class="range" id="calcTerm" type="range" min="12" max="84" step="12" value="72" aria-label="Срок кредита">
+            </div>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result__label">Платёж в месяц</div>
+          <div class="calc-result__sum" id="calcPayment">42 000 <small>₽ / мес</small></div>
+          <div class="calc-result__rows">
+            <div class="calc-result__row"><span>Сумма кредита</span><b id="calcCreditSum">2 639 200 ₽</b></div>
+            <div class="calc-result__row"><span>Первый взнос</span><b id="calcDownSum">659 800 ₽</b></div>
+            <div class="calc-result__row"><span>Ставка</span><b>4,9 % годовых</b></div>
+            <div class="calc-result__row"><span>Срок</span><b id="calcTermValueСрок">72 мес.</b></div>
+          </div>
+          <button class="btn btn--primary btn--block" type="button" data-modal>Получить одобрение банка</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Смотрите также</span>
+          <h2 class="section-title">Похожие автомобили</h2>
+        </div>
+        <a class="link-more" href="catalog.html">
+          Весь каталог
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="cars-grid" id="relatedGrid"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="logo" href="index.html">
+          <span class="logo__mark">A</span>
+          <span class="logo__text">AUTO<em>PRIME</em></span>
+        </a>
+        <p class="footer__about">Мультибрендовый автосалон в Симферополе: новые автомобили, trade-in,
+          кредит и сервисное обслуживание с 2014 года.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="ВКонтакте">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 17.6c-5.4 0-8.7-3.8-8.9-10.1h2.7c.1 4.6 2.1 6.5 3.6 6.9V7.5h2.6v4c1.5-.2 3-1.7 3.5-4h2.6a7 7 0 0 1-3.1 4.3 7.1 7.1 0 0 1 3.6 4.3h-2.9c-.5-1.5-1.9-2.7-3.7-2.9v2.9h-.7Z"/></svg>
+          </a>
+          <a href="#" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 4.6 18.3 19c-.2 1-.8 1.2-1.6.8l-4.4-3.3-2.1 2c-.2.2-.4.4-.9.4l.3-4.5 8.3-7.5c.4-.3-.1-.5-.6-.2L7.1 13.4l-4.3-1.4c-.9-.3-.9-.9.2-1.3l16.7-6.4c.8-.3 1.5.2 1.3 1.3Z"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3Zm5 12.6c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-1.7 0-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4-.1.6.5l.8 2c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.5.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.2.1.4.2.4.4.1.3.1.8-.1 1.3Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Каталог</div>
+        <div class="footer__links">
+          <a href="catalog.html">Все автомобили</a>
+          <a href="catalog.html?body=кроссовер">Кроссоверы</a>
+          <a href="catalog.html?body=седан">Седаны</a>
+          <a href="catalog.html?body=внедорожник">Внедорожники</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Покупателям</div>
+        <div class="footer__links">
+          <a href="index.html#credit">Кредит и рассрочка</a>
+          <a href="index.html#tradein">Trade-in</a>
+          <a href="#" data-modal>Тест-драйв</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Контакты</div>
+        <div class="footer__contact">
+          <span>Адрес салона</span>
+          <a href="contacts.html">г. Симферополь, ул. Киевская, 76</a>
+          <span>Телефон</span>
+          <a href="tel:+79781234567">+7 (978) 123-45-67</a>
+          <span>E-mail</span>
+          <a href="mailto:info@autoprime.ru">info@autoprime.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Автосалон «АвтоПрайм». Все права защищены.</span>
+      <span>Учебный проект в рамках учебной практики УП.08.01</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/car.js"></script>
+</body>
+</html>

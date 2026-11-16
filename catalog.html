@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог автомобилей — АвтоПрайм</title>
+  <meta name="description" content="Каталог новых автомобилей автосалона «АвтоПрайм» в Симферополе: фильтры по марке, кузову, цене, коробке передач и приводу.">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/catalog.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="index.html" aria-label="АвтоПрайм — на главную">
+      <span class="logo__mark">A</span>
+      <span class="logo__text">AUTO<em>PRIME</em></span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="catalog.html">Каталог</a>
+      <a href="index.html#credit">Кредит</a>
+      <a href="index.html#tradein">Trade-in</a>
+      <a href="index.html#about">О салоне</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header__actions">
+      <a class="header__phone" href="tel:+79781234567">+7 (978) 123-45-67</a>
+      <button class="btn btn--primary btn--sm" type="button" data-modal>Тест-драйв</button>
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="catalog.html">Каталог</a>
+    <a href="index.html#credit">Кредит</a>
+    <a href="index.html#tradein">Trade-in</a>
+    <a href="index.html#about">О салоне</a>
+    <a href="contacts.html">Контакты</a>
+    <a class="header__phone" href="tel:+79781234567">+7 (978) 123-45-67</a>
+    <button class="btn btn--primary btn--block" type="button" data-modal>Записаться на тест-драйв</button>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span>/</span>
+      <span>Каталог автомобилей</span>
+    </nav>
+
+    <div class="page-head">
+      <span class="eyebrow">Автомобили в наличии</span>
+      <h1 class="page-head__title">Каталог автомобилей</h1>
+      <p class="page-head__text">Новые автомобили 2026 года от 9 брендов. Выберите марку, кузов и бюджет —
+        мы покажем только подходящие варианты.</p>
+    </div>
+
+    <div class="catalog">
+      <details class="filters" id="filters" open>
+        <summary class="filters__head">
+          <span class="filters__title">Фильтры</span>
+          <svg class="filters__chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <button class="filters__reset" id="resetFilters" type="button">Сбросить все</button>
+
+        <div class="filters__group">
+          <div class="filters__group-title">Марка</div>
+          <div class="filters__list" id="filterBrands"></div>
+        </div>
+
+        <div class="filters__group">
+          <div class="filters__group-title">Кузов</div>
+          <div class="filters__list" id="filterBody"></div>
+        </div>
+
+        <div class="filters__group">
+          <div class="filters__group-title">Цена, ₽</div>
+          <div class="filters__price-value">
+            <span>до</span>
+            <b id="priceMaxLabel">4 000 000 ₽</b>
+          </div>
+          <input class="range" id="priceRange" type="range" min="1000000" max="4000000" step="50000" value="4000000" aria-label="Максимальная цена">
+          <div class="filters__range-scale"><span>1 млн</span><span>4 млн</span></div>
+        </div>
+
+        <div class="filters__group">
+          <div class="filters__group-title">Коробка передач</div>
+          <div class="filters__list" id="filterKpp"></div>
+        </div>
+
+        <div class="filters__group">
+          <div class="filters__group-title">Привод</div>
+          <div class="filters__list" id="filterDrive"></div>
+        </div>
+      </details>
+
+      <section aria-label="Результаты подбора">
+        <div class="catalog__toolbar">
+          <div class="catalog__found">Найдено автомобилей: <b id="foundCount">8</b></div>
+          <label class="sort">
+            Сортировка
+            <select class="select" id="sortSelect" aria-label="Сортировка автомобилей">
+              <option value="popular">по популярности</option>
+              <option value="price-asc">цена: по возрастанию</option>
+              <option value="price-desc">цена: по убыванию</option>
+              <option value="power-desc">мощность: по убыванию</option>
+            </select>
+          </label>
+        </div>
+        <div class="catalog-grid" id="catalogGrid"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="logo" href="index.html">
+          <span class="logo__mark">A</span>
+          <span class="logo__text">AUTO<em>PRIME</em></span>
+        </a>
+        <p class="footer__about">Мультибрендовый автосалон в Симферополе: новые автомобили, trade-in,
+          кредит и сервисное обслуживание с 2014 года.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="ВКонтакте">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 17.6c-5.4 0-8.7-3.8-8.9-10.1h2.7c.1 4.6 2.1 6.5 3.6 6.9V7.5h2.6v4c1.5-.2 3-1.7 3.5-4h2.6a7 7 0 0 1-3.1 4.3 7.1 7.1 0 0 1 3.6 4.3h-2.9c-.5-1.5-1.9-2.7-3.7-2.9v2.9h-.7Z"/></svg>
+          </a>
+          <a href="#" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 4.6 18.3 19c-.2 1-.8 1.2-1.6.8l-4.4-3.3-2.1 2c-.2.2-.4.4-.9.4l.3-4.5 8.3-7.5c.4-.3-.1-.5-.6-.2L7.1 13.4l-4.3-1.4c-.9-.3-.9-.9.2-1.3l16.7-6.4c.8-.3 1.5.2 1.3 1.3Z"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3Zm5 12.6c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-1.7 0-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4-.1.6.5l.8 2c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.5.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.2.1.4.2.4.4.1.3.1.8-.1 1.3Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Каталог</div>
+        <div class="footer__links">
+          <a href="catalog.html">Все автомобили</a>
+          <a href="catalog.html?body=кроссовер">Кроссоверы</a>
+          <a href="catalog.html?body=седан">Седаны</a>
+          <a href="catalog.html?body=внедорожник">Внедорожники</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Покупателям</div>
+        <div class="footer__links">
+          <a href="index.html#credit">Кредит и рассрочка</a>
+          <a href="index.html#tradein">Trade-in</a>
+          <a href="#" data-modal>Тест-драйв</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Контакты</div>
+        <div class="footer__contact">
+          <span>Адрес салона</span>
+          <a href="contacts.html">г. Симферополь, ул. Киевская, 76</a>
+          <span>Телефон</span>
+          <a href="tel:+79781234567">+7 (978) 123-45-67</a>
+          <span>E-mail</span>
+          <a href="mailto:info@autoprime.ru">info@autoprime.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Автосалон «АвтоПрайм». Все права защищены.</span>
+      <span>Учебный проект в рамках учебной практики УП.08.01</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>

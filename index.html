@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АвтоПрайм — автосалон в Симферополе: новые автомобили в наличии</title>
+  <meta name="description" content="АвтоПрайм — мультибрендовый автосалон в Симферополе. Более 120 новых автомобилей в наличии, кредит от 4,9 %, trade-in за один день, тест-драйв по записи.">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="index.html" aria-label="АвтоПрайм — на главную">
+      <span class="logo__mark">A</span>
+      <span class="logo__text">AUTO<em>PRIME</em></span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="catalog.html">Каталог</a>
+      <a href="#credit">Кредит</a>
+      <a href="#tradein">Trade-in</a>
+      <a href="#about">О салоне</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header__actions">
+      <a class="header__phone" href="tel:+79781234567">+7 (978) 123-45-67</a>
+      <button class="btn btn--primary btn--sm" type="button" data-modal>Тест-драйв</button>
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="catalog.html">Каталог</a>
+    <a href="#credit">Кредит</a>
+    <a href="#tradein">Trade-in</a>
+    <a href="#about">О салоне</a>
+    <a href="contacts.html">Контакты</a>
+    <a class="header__phone" href="tel:+79781234567">+7 (978) 123-45-67</a>
+    <button class="btn btn--primary btn--block" type="button" data-modal>Записаться на тест-драйв</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- Первый экран -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="eyebrow">Автосалон в Симферополе</span>
+        <h1 class="hero__title">Автомобиль,<br>который вам <span>подходит</span></h1>
+        <p class="hero__text">Более 120 новых автомобилей в наличии: подберём модель под ваш бюджет,
+          рассчитаем кредит от 4,9 % и примем старый автомобиль в trade-in.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="catalog.html">
+            Смотреть каталог
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#credit">Подобрать в кредит</a>
+        </div>
+        <ul class="hero__stats">
+          <li>
+            <div class="stat__value">9 <em>брендов</em></div>
+            <div class="stat__label">в наличии</div>
+          </li>
+          <li>
+            <div class="stat__value">120+</div>
+            <div class="stat__label">автомобилей</div>
+          </li>
+          <li>
+            <div class="stat__value">12 <em>лет</em></div>
+            <div class="stat__label">на рынке Крыма</div>
+          </li>
+        </ul>
+      </div>
+      <div class="hero__media">
+        <div class="hero__photo">
+          <img src="img/hero.webp" alt="Kia Sportage в автосалоне АвтоПрайм" width="1000" height="750">
+        </div>
+        <div class="hero__offer">
+          <div class="hero__offer-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+          </div>
+          <div>
+            <div class="hero__offer-title">Хит продаж — Kia Sportage</div>
+            <div class="hero__offer-price">от 3 299 000 ₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подбор автомобиля -->
+  <div class="container">
+    <form class="search-panel" id="searchForm">
+      <div class="field">
+        <label for="searchBrand">Марка</label>
+        <select class="select" id="searchBrand" name="brand"></select>
+      </div>
+      <div class="field">
+        <label for="searchBody">Кузов</label>
+        <select class="select" id="searchBody" name="body"></select>
+      </div>
+      <div class="field">
+        <label for="searchBudget">Бюджет</label>
+        <select class="select" id="searchBudget" name="budget"></select>
+      </div>
+      <button class="btn btn--dark" type="submit">Подобрать</button>
+    </form>
+  </div>
+
+  <!-- Популярные модели -->
+  <section class="section popular" id="popular">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Каталог</span>
+          <h2 class="section-title">Популярные модели</h2>
+          <p class="section-subtitle">Автомобили, которые чаще всего выбирают наши покупатели в этом сезоне.</p>
+        </div>
+        <a class="link-more" href="catalog.html">
+          Весь каталог
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="cars-grid" id="popularGrid"></div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section class="section section--tight" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Почему мы</span>
+          <h2 class="section-title">Почему выбирают «АвтоПрайм»</h2>
+          <p class="section-subtitle">Работаем с 2014 года и отвечаем за каждый этап сделки — от подбора до сервисного обслуживания.</p>
+        </div>
+      </div>
+      <div class="benefits">
+        <article class="benefit reveal">
+          <div class="benefit__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="benefit__title">Официальная гарантия</h3>
+          <p class="benefit__text">Все автомобили с гарантией производителя до 5 лет и полным пакетом документов.</p>
+        </article>
+        <article class="benefit reveal">
+          <div class="benefit__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/></svg>
+          </div>
+          <h3 class="benefit__title">Кредит от 4,9 %</h3>
+          <p class="benefit__text">Собственная кредитная программа: решение банка за 5 минут без визита в офис.</p>
+        </article>
+        <article class="benefit reveal">
+          <div class="benefit__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11l-3-3M20 17H9l3 3"/><path d="M17 7a4 4 0 0 1 0 8M7 17a4 4 0 0 1 0-8"/></svg>
+          </div>
+          <h3 class="benefit__title">Trade-in за 1 день</h3>
+          <p class="benefit__text">Оценим ваш автомобиль за 15 минут и зачтём его стоимость в счёт нового.</p>
+        </article>
+        <article class="benefit reveal">
+          <div class="benefit__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="benefit__title">Сервис 24/7</h3>
+          <p class="benefit__text">Собственный техцентр, оригинальные запчасти и помощь на дороге в любое время.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Кредит -->
+  <section class="section" id="credit">
+    <div class="container">
+      <div class="credit">
+        <div>
+          <span class="eyebrow eyebrow--light">Финансирование</span>
+          <h2 class="credit__title">Кредит на автомобиль <span>от 4,9 %</span></h2>
+          <p class="credit__text">Рассчитайте платёж онлайн и получите предварительное решение банка за 5 минут.
+            Первоначальный взнос — от 0 ₽, срок — до 84 месяцев.</p>
+          <div class="credit__terms">
+            <div>
+              <div class="credit__term-value">4,9 %</div>
+              <div class="credit__term-label">ставка</div>
+            </div>
+            <div>
+              <div class="credit__term-value">0 ₽</div>
+              <div class="credit__term-label">первый взнос</div>
+            </div>
+            <div>
+              <div class="credit__term-value">5 мин</div>
+              <div class="credit__term-label">решение</div>
+            </div>
+          </div>
+          <a class="btn btn--primary btn--lg" href="car.html?id=kia-sportage#calculator">Рассчитать платёж</a>
+        </div>
+        <div class="credit__card">
+          <div class="credit__card-title">Пример расчёта</div>
+          <div class="credit__row"><span>Автомобиль</span><b>Kia Sportage</b></div>
+          <div class="credit__row"><span>Стоимость</span><b>3 299 000 ₽</b></div>
+          <div class="credit__row"><span>Первый взнос</span><b>20 %</b></div>
+          <div class="credit__row"><span>Срок</span><b>72 месяца</b></div>
+          <div class="credit__payment">
+            <div>
+              <div class="credit__card-title">Платёж в месяц</div>
+              <div class="credit__payment-value">42 400 <small>₽</small></div>
+            </div>
+            <div class="credit__payment-note">Ставка 4,9 %<br>без скрытых комиссий</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trade-in -->
+  <section class="section" id="tradein">
+    <div class="container tradein">
+      <div>
+        <span class="eyebrow">Обмен автомобиля</span>
+        <h2 class="tradein__title">Обменяйте свой автомобиль с выгодой</h2>
+        <p class="tradein__text">Принимаем автомобили любых марок в зачёт покупки нового.
+          Оценка бесплатная, деньги зачисляются в день сделки.</p>
+        <div class="hero__actions">
+          <button class="btn btn--primary btn--lg" type="button" data-modal>Оценить автомобиль</button>
+          <a class="btn btn--light btn--lg" href="contacts.html">Задать вопрос</a>
+        </div>
+      </div>
+      <div class="tradein__steps">
+        <div class="step">
+          <div class="step__num">01</div>
+          <div>
+            <div class="step__title">Оценка за 15 минут</div>
+            <div class="step__text">Приезжайте в салон или отправьте фото автомобиля — назовём точную цену.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <div>
+            <div class="step__title">Подбор нового автомобиля</div>
+            <div class="step__text">Менеджер подберёт модель с учётом разницы в стоимости и условий кредита.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <div>
+            <div class="step__title">Оформление за 1 день</div>
+            <div class="step__text">Договор, страхование и постановка на учёт — всё в одном месте.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Отзывы</span>
+          <h2 class="section-title">Что говорят покупатели</h2>
+          <p class="section-subtitle">Средняя оценка салона — 4,9 из 5 по отзывам клиентов за последний год.</p>
+        </div>
+      </div>
+      <div class="reviews">
+        <article class="review">
+          <div class="review__stars" aria-label="Оценка 5 из 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+          </div>
+          <p class="review__text">Выбирал семейный кроссовер, консультант помог сравнить три модели и честно рассказал
+            про комплектации. Оформили кредит за один визит, машину забрал через два дня.</p>
+          <div class="review__author">
+            <div class="review__avatar">А</div>
+            <div>
+              <div class="review__name">Алексей Морозов</div>
+              <div class="review__city">Симферополь</div>
+            </div>
+          </div>
+        </article>
+        <article class="review">
+          <div class="review__stars" aria-label="Оценка 5 из 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+          </div>
+          <p class="review__text">Сдала старую машину по трейд-ин: оценили за полчаса и дали больше, чем в двух других
+            салонах. Новый автомобиль подготовили к выдаче, всё показали и настроили.</p>
+          <div class="review__author">
+            <div class="review__avatar">М</div>
+            <div>
+              <div class="review__name">Марина Гладкова</div>
+              <div class="review__city">Феодосия</div>
+            </div>
+          </div>
+        </article>
+        <article class="review">
+          <div class="review__stars" aria-label="Оценка 5 из 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9z"/></svg>
+          </div>
+          <p class="review__text">Записался на тест-драйв через сайт, перезвонили в течение десяти минут.
+            Понравился подход: не давили с допуслугами, дали спокойно сравнить две модели.</p>
+          <div class="review__author">
+            <div class="review__avatar">Д</div>
+            <div>
+              <div class="review__name">Денис Кравченко</div>
+              <div class="review__city">Севастополь</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="logo" href="index.html">
+          <span class="logo__mark">A</span>
+          <span class="logo__text">AUTO<em>PRIME</em></span>
+        </a>
+        <p class="footer__about">Мультибрендовый автосалон в Симферополе: новые автомобили, trade-in,
+          кредит и сервисное обслуживание с 2014 года.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="ВКонтакте">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 17.6c-5.4 0-8.7-3.8-8.9-10.1h2.7c.1 4.6 2.1 6.5 3.6 6.9V7.5h2.6v4c1.5-.2 3-1.7 3.5-4h2.6a7 7 0 0 1-3.1 4.3 7.1 7.1 0 0 1 3.6 4.3h-2.9c-.5-1.5-1.9-2.7-3.7-2.9v2.9h-.7Z"/></svg>
+          </a>
+          <a href="#" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 4.6 18.3 19c-.2 1-.8 1.2-1.6.8l-4.4-3.3-2.1 2c-.2.2-.4.4-.9.4l.3-4.5 8.3-7.5c.4-.3-.1-.5-.6-.2L7.1 13.4l-4.3-1.4c-.9-.3-.9-.9.2-1.3l16.7-6.4c.8-.3 1.5.2 1.3 1.3Z"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3Zm5 12.6c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-1.7 0-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4-.1.6.5l.8 2c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.5.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.2.1.4.2.4.4.1.3.1.8-.1 1.3Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Каталог</div>
+        <div class="footer__links">
+          <a href="catalog.html">Все автомобили</a>
+          <a href="catalog.html?body=кроссовер">Кроссоверы</a>
+          <a href="catalog.html?body=седан">Седаны</a>
+          <a href="catalog.html?body=внедорожник">Внедорожники</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Покупателям</div>
+        <div class="footer__links">
+          <a href="#credit">Кредит и рассрочка</a>
+          <a href="#tradein">Trade-in</a>
+          <a href="#" data-modal>Тест-драйв</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Контакты</div>
+        <div class="footer__contact">
+          <span>Адрес салона</span>
+          <a href="contacts.html">г. Симферополь, ул. Киевская, 76</a>
+          <span>Телефон</span>
+          <a href="tel:+79781234567">+7 (978) 123-45-67</a>
+          <span>E-mail</span>
+          <a href="mailto:info@autoprime.ru">info@autoprime.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Автосалон «АвтоПрайм». Все права защищены.</span>
+      <span>Учебный проект в рамках учебной практики УП.08.01</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
