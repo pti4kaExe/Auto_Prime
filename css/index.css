@@ -1,0 +1,612 @@
+/* ==========================================================================
+   «АвтоПрайм» — стили главной страницы
+   ========================================================================== */
+
+/* --- Первый экран --------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 84px 0 150px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 420px at 82% 18%, rgba(227, 38, 54, 0.22), transparent 70%),
+    radial-gradient(520px 380px at 12% 92%, rgba(201, 164, 106, 0.12), transparent 72%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 72px 72px, 72px 72px;
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.04fr 0.96fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero__title {
+  margin-top: 22px;
+  font-size: clamp(40px, 4.8vw, 64px);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.hero__title span {
+  color: var(--accent);
+}
+
+.hero__text {
+  margin-top: 22px;
+  max-width: 500px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted-light);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 46px;
+  margin-top: 48px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat__value {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.stat__value em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.stat__label {
+  margin-top: 4px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+.hero__media {
+  position: relative;
+}
+
+.hero__media::before {
+  content: "";
+  position: absolute;
+  inset: -26px -26px auto auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227, 38, 54, 0.35), transparent 70%);
+  filter: blur(10px);
+}
+
+.hero__photo {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__photo img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 52%, rgba(10, 14, 20, 0.65));
+}
+
+.hero__offer {
+  position: absolute;
+  left: -22px;
+  bottom: -24px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.97);
+  color: var(--text-dark);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__offer-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(227, 38, 54, 0.1);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.hero__offer-mark svg {
+  width: 22px;
+  height: 22px;
+}
+
+.hero__offer-title {
+  font-size: 13px;
+  color: var(--muted-dark);
+}
+
+.hero__offer-price {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* --- Панель подбора ------------------------------------------------------- */
+
+.search-panel {
+  position: relative;
+  z-index: 5;
+  margin-top: -74px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 16px;
+  align-items: end;
+  padding: 26px 28px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(228, 231, 236, 0.7);
+}
+
+.search-panel .btn {
+  height: 51px;
+}
+
+/* --- Популярные модели ---------------------------------------------------- */
+
+.popular {
+  padding-top: 76px;
+}
+
+/* --- Преимущества --------------------------------------------------------- */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.benefit {
+  padding: 28px 24px 30px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-light);
+  border: 1px solid var(--border-light);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.benefit:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.benefit__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: rgba(227, 38, 54, 0.09);
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.benefit__icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.benefit__title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.benefit__text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted-dark);
+}
+
+/* --- Баннер «Кредит» ------------------------------------------------------ */
+
+.credit {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #14181f 0%, #1d222b 58%, #2a1a1d 100%);
+  color: var(--text-light);
+  padding: 56px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.credit::before {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -120px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227, 38, 54, 0.28), transparent 68%);
+  pointer-events: none;
+}
+
+.credit__title {
+  margin-top: 16px;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.credit__title span {
+  color: var(--accent);
+}
+
+.credit__text {
+  margin-top: 16px;
+  max-width: 440px;
+  color: var(--muted-light);
+  font-size: 15.5px;
+}
+
+.credit__terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  margin: 30px 0 32px;
+}
+
+.credit__term-value {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.credit__term-label {
+  margin-top: 2px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+.credit__card {
+  position: relative;
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.credit__card-title {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+.credit__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 14.5px;
+}
+
+.credit__row span {
+  color: var(--muted-light);
+}
+
+.credit__row b {
+  font-weight: 700;
+}
+
+.credit__payment {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.credit__payment-value {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+.credit__payment-value small {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted-light);
+}
+
+.credit__payment-note {
+  font-size: 12px;
+  color: var(--muted-light);
+  text-align: right;
+}
+
+/* --- Trade-in ------------------------------------------------------------- */
+
+.tradein {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.tradein__title {
+  margin-top: 16px;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.tradein__text {
+  margin-top: 16px;
+  color: var(--muted-dark);
+  max-width: 420px;
+}
+
+.tradein__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  padding: 24px 26px;
+  border-radius: 18px;
+  background: var(--surface-light);
+  border: 1px solid var(--border-light);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.step:hover {
+  border-color: rgba(227, 38, 54, 0.4);
+  transform: translateX(4px);
+}
+
+.step__num {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(227, 38, 54, 0.32);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.step__title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.step__text {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--muted-dark);
+}
+
+/* --- Отзывы --------------------------------------------------------------- */
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 30px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-light);
+  border: 1px solid var(--border-light);
+}
+
+.review__stars {
+  display: flex;
+  gap: 3px;
+  color: var(--gold);
+}
+
+.review__stars svg {
+  width: 17px;
+  height: 17px;
+}
+
+.review__text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #333a45;
+}
+
+.review__author {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.review__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2b323c, #14181f);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex: none;
+}
+
+.review__name {
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.review__city {
+  font-size: 12.5px;
+  color: var(--muted-dark);
+}
+
+/* --- Адаптивность главной ------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .hero__inner {
+    gap: 40px;
+  }
+
+  .hero__stats {
+    gap: 32px;
+  }
+
+  .benefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .credit {
+    padding: 44px;
+  }
+
+  .tradein {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 64px 0 132px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__media {
+    order: -1;
+    max-width: 560px;
+  }
+
+  .search-panel {
+    grid-template-columns: 1fr 1fr;
+    margin-top: -66px;
+    padding: 22px;
+  }
+
+  .search-panel .btn {
+    grid-column: 1 / -1;
+  }
+
+  .credit {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .tradein {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 48px 0 120px;
+  }
+
+  .hero__stats {
+    gap: 24px;
+  }
+
+  .stat__value {
+    font-size: 24px;
+  }
+
+  .hero__offer {
+    left: 12px;
+    bottom: -18px;
+    padding: 12px 16px;
+  }
+
+  .search-panel {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .credit {
+    padding: 30px 22px;
+  }
+
+  .credit__terms {
+    gap: 22px;
+  }
+
+  .credit__payment-value {
+    font-size: 28px;
+  }
+}

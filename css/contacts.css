@@ -1,0 +1,336 @@
+/* ==========================================================================
+   «АвтоПрайм» — стили страницы «Контакты»
+   ========================================================================== */
+
+.contacts-page {
+  padding-bottom: 92px;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 34px 0 54px;
+}
+
+.contact-card {
+  padding: 26px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-light);
+  border: 1px solid var(--border-light);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.contact-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(227, 38, 54, 0.09);
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.contact-card__icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.contact-card__label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-dark);
+}
+
+.contact-card__value {
+  margin-top: 6px;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.contact-card__value a:hover {
+  color: var(--accent);
+}
+
+.contact-card__note {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--muted-dark);
+}
+
+/* --- Карта ---------------------------------------------------------------- */
+
+.map-block {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 22px;
+  margin-bottom: 64px;
+}
+
+.map {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background: #e9eef3;
+  min-height: 420px;
+}
+
+.map svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.map__pin {
+  position: absolute;
+  left: 46%;
+  top: 41%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  transform: translate(-50%, -100%);
+}
+
+.map__pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.map__pin-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.map__pin-mark svg {
+  position: static;
+  width: 18px;
+  height: 18px;
+}
+
+.map__pin-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.map__pin-text {
+  font-size: 12px;
+  color: var(--muted-dark);
+  white-space: nowrap;
+}
+
+.map__legend {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 3;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  font-size: 12px;
+  color: var(--muted-dark);
+}
+
+.contact-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 30px 28px;
+  border-radius: 24px;
+  background: var(--surface-light);
+  border: 1px solid var(--border-light);
+}
+
+.contact-aside__title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.contact-aside__text {
+  font-size: 14px;
+  color: var(--muted-dark);
+}
+
+.contact-aside__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.contact-aside__item {
+  display: flex;
+  gap: 12px;
+  font-size: 14.5px;
+}
+
+.contact-aside__item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  flex: none;
+  margin-top: 3px;
+}
+
+/* --- Форма обратной связи ------------------------------------------------- */
+
+.contact-form-block {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.form-card {
+  padding: 36px;
+  border-radius: 24px;
+  background: var(--surface-light);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow);
+}
+
+.form-card__title {
+  font-size: clamp(24px, 2.4vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.form-card__text {
+  margin-top: 8px;
+  font-size: 14.5px;
+  color: var(--muted-dark);
+  max-width: 460px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.form .field--full {
+  grid-column: 1 / -1;
+}
+
+.form .btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.requisites {
+  padding: 36px;
+  border-radius: 24px;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.requisites__title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.requisites__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4px;
+}
+
+.requisites__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  font-size: 14px;
+}
+
+.requisites__row span {
+  color: var(--muted-light);
+}
+
+.requisites__row b {
+  font-weight: 600;
+  text-align: right;
+}
+
+.requisites__note {
+  margin-top: auto;
+  font-size: 12.5px;
+  color: var(--muted-light);
+}
+
+/* --- Адаптивность контактов ----------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .map-block {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-block {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .map {
+    min-height: 330px;
+  }
+
+  .form-card,
+  .requisites {
+    padding: 26px 20px;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .map__pin {
+    transform: translate(-50%, -100%) scale(0.9);
+  }
+}
